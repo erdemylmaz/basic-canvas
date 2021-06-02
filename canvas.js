@@ -94,10 +94,15 @@ onCanvasMove = (e) => {
     lastDifferenceX = differenceX;
     lastDifferenceY = differenceY;
 
-    ctx.fillStyle = "rgba(22, 82, 240, 0.3)";
+    if (differenceY < 0) {
+      ctx.fillStyle = "rgba(22, 82, 240, 0.3)";
+      ctx.strokeStyle = "rgb(22, 82, 240)";
+    } else {
+      ctx.fillStyle = "#FF463144";
+      ctx.strokeStyle = "#FF4631";
+    }
     ctx.fillRect(clickedMouseX, clickedMouseY, differenceX, differenceY);
 
-    ctx.strokeStyle = "rgb(22, 82, 240)";
     ctx.strokeRect(
       clickedMouseX - 1,
       clickedMouseY - 1,
@@ -109,28 +114,29 @@ onCanvasMove = (e) => {
     let rectCenterY = clickedMouseY + differenceY / 2;
 
     if (lastDifferenceX > 3 || lastDifferenceX < -3) {
-      ctx.fillStyle = "rgb(22, 82, 240)";
       ctx.fillRect(rectCenterX, clickedMouseY, 1, differenceY);
     }
 
     if (lastDifferenceY > 3 || lastDifferenceY < -3) {
-      ctx.fillStyle = "rgb(22, 82, 240)";
       ctx.fillRect(clickedMouseX, rectCenterY, differenceX, 1);
     }
 
     if (
-      (lastDifferenceX > 130 || lastDifferenceX < -130) &&
-      (lastDifferenceY > 91 || lastDifferenceY < -91)
+      (lastDifferenceX > 150 || lastDifferenceX < -150) &&
+      (lastDifferenceY > 110 || lastDifferenceY < -110)
     ) {
       ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
       ctx.font = "12px Arial";
-      ctx.fillText(`X: ${clickedMouseX}`, rectCenterX + 4, rectCenterY - 36);
-      ctx.fillText(`Y: ${clickedMouseY}`, rectCenterX + 4, rectCenterY - 12);
+      ctx.fillText(`X: ${clickedMouseX}`, rectCenterX + 4, rectCenterY - 48);
+      ctx.fillText(`Y: ${clickedMouseY}`, rectCenterX + 4, rectCenterY - 36);
+
+      ctx.fillText(`Mouse X: ${mouseX}`, rectCenterX + 4, rectCenterY - 20);
+      ctx.fillText(`Mouse Y: ${mouseY}`, rectCenterX + 4, rectCenterY - 8);
 
       ctx.fillText(
         `Width: ${Math.abs(lastDifferenceX)}`,
         rectCenterX + 4,
-        rectCenterY + 12
+        rectCenterY + 24
       );
       ctx.fillText(
         `Height: ${Math.abs(lastDifferenceY)}`,
