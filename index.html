@@ -7,9 +7,24 @@
     <title>Canva</title>
     <!-- Style -->
     <link rel="stylesheet" href="./style.css">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/fa178081cb.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="tools">
+        <div class="main-tool tool tool-active"><div class="main">+</div></div>
+        <div class="paint-tool tool"><i class="fas fa-pen" style="font-size: 20px;"></i></div>
+        <div class="horizontal-tool tool"><div class="horizontal-line line extra-tool"></div></div>
+        <div class="f-horizontal-tool tool"><div class="horizontal-full-line line extra-tool"></div> <div class="center-ball extra-tool"></div></div>
+        <div class="n-horizontal-tool tool"><div class="horizontal-next-line line extra-tool"></div> <div class="left-ball extra-tool"></div></div>
+        <div class="ruler-tool tool"><i class="fas fa-ruler"></i></div>
+    </div>
     <canvas id="canvas">Update your browser or use another browser!</canvas>
+    <div class="reset-btn">Reset Canvas!</div>
+    <div class="eraser-btn"><i class="fas fa-eraser"></i></div>
+    <div class="decrease-btn e-btn">-</div>
+    <div class="increase-btn e-btn">+</div>
+    <div class="eraser-font-size">24</div>
 <!-- Canvas -->
 <script src="./canvas.js"></script>
 </body>
